@@ -1,0 +1,31 @@
+# Primeiros passos
+
+## Objetos e vetores
+
+
+```{r nice-tab, tidy=FALSE}
+knitr::kable(
+  head(iris, 20), caption = 'Here is a nice table!',
+  booktabs = TRUE
+)
+```
+
+## Classes: números, caracteres, lógicos e data frames
+
+## Data frames
+
+## Operadores de seleção
+
+## Utilizando e criando funções no R
+
+## Operadores lógicos e aritméticos
+
+## Loopings de programação: for e while
+
+## O operador pipe (%>%)
+
+## Importando arquivos de texto: .csv e .txt 
+
+## Importando arquivos excel: .xls e .xlsx
+
+## Manipulação de bases de dados (o pacote dplyr)"

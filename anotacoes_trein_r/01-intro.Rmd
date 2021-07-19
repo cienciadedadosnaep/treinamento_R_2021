@@ -1,0 +1,25 @@
+# Instalações e configurações {#intro}
+
+Inicialmente é necessário fazer as instalações dos *softwares* 
+[R](https://cran.r-project.org/bin/windows/base/)  e 
+[Rstudio](https://www.rstudio.com/products/rstudio/). 
+Em seguida, deve ser instalados alguns pacotes comumente utilizados 
+ao longo do curso como:
+
+ * [tidyverse](https://www.tidyverse.org/), que inclui
+     + readr
+     + dplyr
+     + tibble
+     + ggplot2
+     + tidyr
+     + stringr
+     + purr
+     + forcats
+ 
+```{r, eval=FALSE}
+install.packages(tidyverse)
+```
+
+
+
+
