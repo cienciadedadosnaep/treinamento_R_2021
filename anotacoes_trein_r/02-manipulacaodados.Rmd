@@ -1,4 +1,17 @@
-# Primeiros passos
+# Manipulação de dados
+
+## Importanto conjunto de dados
+
+Uma das opções mais simples de leitura de dados num arquivo é a 
+função *read.csv()* do pacote **{utils}**. Para o nosso conjunto de 
+dados de Segurança Pública que está dentro da pasta do nosso **Rproject**, 
+temos o seguinte comando:
+
+```{r eval=FALSE,echo=TRUE}
+read.csv(file='data/all_data_v00.csv',
+         header = TRUE,sep =',')
+```
+
 
 ## Objetos e vetores
 
@@ -9,7 +22,7 @@ knitr::kable(
   booktabs = TRUE
 )
 ```
-
+`
 ## Classes: números, caracteres, lógicos e data frames
 
 ## Data frames

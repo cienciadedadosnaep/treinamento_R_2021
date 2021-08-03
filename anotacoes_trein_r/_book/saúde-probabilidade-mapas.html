@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 Saúde - Probabilidade - Mapas | Anotações do treinamento R</title>
+  <meta name="description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 Saúde - Probabilidade - Mapas | Anotações do treinamento R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 Saúde - Probabilidade - Mapas | Anotações do treinamento R" />
+  
+  <meta name="twitter:description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  
+
+<meta name="author" content="Robson Wilson Silva Pessoa" />
+
+
+<meta name="date" content="2021-08-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dashboards.html"/>
+<link rel="next" href="references.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/formattable_widget-binding-0.2.1/formattable_widget.js"></script>
+<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-Requisitos</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Instalações e configurações</a></li>
+<li class="chapter" data-level="3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html"><i class="fa fa-check"></i><b>3</b> Manipulação de dados</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importanto-conjunto-de-dados"><i class="fa fa-check"></i><b>3.1</b> Importanto conjunto de dados</a></li>
+<li class="chapter" data-level="3.2" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#objetos-e-vetores"><i class="fa fa-check"></i><b>3.2</b> Objetos e vetores</a></li>
+<li class="chapter" data-level="3.3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data frames</a></li>
+<li class="chapter" data-level="3.4" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-de-seleção"><i class="fa fa-check"></i><b>3.4</b> Operadores de seleção</a></li>
+<li class="chapter" data-level="3.5" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#utilizando-e-criando-funções-no-r"><i class="fa fa-check"></i><b>3.5</b> Utilizando e criando funções no R</a></li>
+<li class="chapter" data-level="3.6" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-lógicos-e-aritméticos"><i class="fa fa-check"></i><b>3.6</b> Operadores lógicos e aritméticos</a></li>
+<li class="chapter" data-level="3.7" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#loopings-de-programação-for-e-while"><i class="fa fa-check"></i><b>3.7</b> Loopings de programação: for e while</a></li>
+<li class="chapter" data-level="3.8" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#o-operador-pipe"><i class="fa fa-check"></i><b>3.8</b> O operador pipe (%&gt;%)</a></li>
+<li class="chapter" data-level="3.9" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-de-texto-.csv-e-.txt"><i class="fa fa-check"></i><b>3.9</b> Importando arquivos de texto: .csv e .txt</a></li>
+<li class="chapter" data-level="3.10" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-excel-.xls-e-.xlsx"><i class="fa fa-check"></i><b>3.10</b> Importando arquivos excel: .xls e .xlsx</a></li>
+<li class="chapter" data-level="3.11" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#manipulação-de-bases-de-dados-o-pacote-dplyr"><i class="fa fa-check"></i><b>3.11</b> Manipulação de bases de dados (o pacote dplyr)"</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="atividades.html"><a href="atividades.html"><i class="fa fa-check"></i><b>4</b> Atividades</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="atividades.html"><a href="atividades.html#carregamento-de-bibliotecas-e-dados"><i class="fa fa-check"></i><b>4.1</b> Carregamento de bibliotecas e dados</a></li>
+<li class="chapter" data-level="4.2" data-path="atividades.html"><a href="atividades.html#exemplo-de-aplicação-do-lubridate"><i class="fa fa-check"></i><b>4.2</b> Exemplo de aplicação do Lubridate</a></li>
+<li class="chapter" data-level="4.3" data-path="atividades.html"><a href="atividades.html#uso-do-data-table-dt"><i class="fa fa-check"></i><b>4.3</b> Uso do <em>Data Table</em> (DT)</a></li>
+<li class="chapter" data-level="4.4" data-path="atividades.html"><a href="atividades.html#resolução-de-situações-problemas"><i class="fa fa-check"></i><b>4.4</b> Resolução de situações problemas</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="atividades.html"><a href="atividades.html#código-filtros-e-seleções"><i class="fa fa-check"></i><b>4.4.1</b> Código filtros e seleções</a></li>
+<li class="chapter" data-level="4.4.2" data-path="atividades.html"><a href="atividades.html#código---manipulação-de-datas"><i class="fa fa-check"></i><b>4.4.2</b> Código - manipulação de datas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="atividades.html"><a href="atividades.html#código-gráficos"><i class="fa fa-check"></i><b>4.4.3</b> Código Gráficos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="controle-de-versões-de-projetos.html"><a href="controle-de-versões-de-projetos.html"><i class="fa fa-check"></i><b>5</b> Controle de versões de projetos</a></li>
+<li class="chapter" data-level="6" data-path="dashboards.html"><a href="dashboards.html"><i class="fa fa-check"></i><b>6</b> Dashboards</a></li>
+<li class="chapter" data-level="7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html"><i class="fa fa-check"></i><b>7</b> Saúde - Probabilidade - Mapas</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#recursos-físicos-e-humanos-da-rede-assistencial-de-saúde"><i class="fa fa-check"></i><b>7.1</b> Recursos físicos e humanos da rede assistencial de saúde</a></li>
+<li class="chapter" data-level="7.2" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#objetivo-de-desenvolvimento-sustentável"><i class="fa fa-check"></i><b>7.2</b> Objetivo de Desenvolvimento Sustentável</a></li>
+<li class="chapter" data-level="7.3" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#ibge-pense"><i class="fa fa-check"></i><b>7.3</b> IBGE PENSE</a></li>
+<li class="chapter" data-level="7.4" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#sisvan"><i class="fa fa-check"></i><b>7.4</b> SISVAN</a></li>
+<li class="chapter" data-level="7.5" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-saúde-sei"><i class="fa fa-check"></i><b>7.5</b> Informações sobre saúde SEI</a></li>
+<li class="chapter" data-level="7.6" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-câncer"><i class="fa fa-check"></i><b>7.6</b> Informações sobre câncer</a></li>
+<li class="chapter" data-level="7.7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#divisão-dos-distritos-sanitários"><i class="fa fa-check"></i><b>7.7</b> Divisão dos distritos sanitários</a></li>
+<li class="chapter" data-level="7.8" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#doenças-de-condições-crônicas-e-infecções-sexualmente-transmissíveis"><i class="fa fa-check"></i><b>7.8</b> Doenças de Condições Crônicas e Infecções Sexualmente Transmissíveis</a></li>
+<li class="chapter" data-level="7.9" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#tabnet-salvador"><i class="fa fa-check"></i><b>7.9</b> Tabnet Salvador</a></li>
+<li class="chapter" data-level="7.10" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#histogramas"><i class="fa fa-check"></i><b>7.10</b> Histogramas</a></li>
+<li class="chapter" data-level="7.11" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#probabilidade-versus-possibilidade"><i class="fa fa-check"></i><b>7.11</b> Probabilidade versus possibilidade</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Anotações do treinamento R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="saúde---probabilidade---mapas" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> Saúde - Probabilidade - Mapas</h1>
+<p>Um pai cientista tem passado por
+um dilema profundo. Diante da pandemia
+que recentemente foi enfrentada por todos
+os continentes, chegará
+o momento de maior dificuldade em sua
+decisão em reenviar seu filho para a escola.
+O filho já o questionava sobre a possibilidade
+de frequentar as aulas. Mas quais
+informações temos acesso que podem nos ajudar nesta
+avaliação?</p>
+<div id="recursos-físicos-e-humanos-da-rede-assistencial-de-saúde" class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Recursos físicos e humanos da rede assistencial de saúde</h2>
+<p><a href="https://dadosgeociencias.ibge.gov.br/portal/apps/sites/#/saude">Mapas</a></p>
+<iframe width="804" height="452" src="https://www.youtube.com/embed/G5YsSBc98Po" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="objetivo-de-desenvolvimento-sustentável" class="section level2" number="7.2">
+<h2><span class="header-section-number">7.2</span> Objetivo de Desenvolvimento Sustentável</h2>
+<p><a href="http://www.agenda2030.org.br/ods/3/">ODS3</a>
+<a href="https://metadados.ibge.gov.br/consulta/ODS/objetivo/3">ODS3-IBGE</a></p>
+<iframe width="697" height="392" src="https://www.youtube.com/embed/LMOynUxsGHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+</div>
+<div id="ibge-pense" class="section level2" number="7.3">
+<h2><span class="header-section-number">7.3</span> IBGE PENSE</h2>
+<iframe width="876" height="493" src="https://www.youtube.com/embed/z4BBCHZUvD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+</iframe>
+<p><a href="https://www.ibge.gov.br/estatisticas/sociais/saude/9134-pesquisa-nacional-de-saude-do-escolar.html?=&amp;t=resultados">Tabelas PESE 2015</a></p>
+<p><a href="https://educa.ibge.gov.br/jovens/materias-especiais/19030-pense-2015-a-saude-dos-adolescentes.html">Estudo PENSE IBGE</a></p>
+</div>
+<div id="sisvan" class="section level2" number="7.4">
+<h2><span class="header-section-number">7.4</span> SISVAN</h2>
+<p><a href="http://sisaps.saude.gov.br/sisvan/relatoriopublico/index">SISVAN</a></p>
+</div>
+<div id="informações-sobre-saúde-sei" class="section level2" number="7.5">
+<h2><span class="header-section-number">7.5</span> Informações sobre saúde SEI</h2>
+<p><a href="https://www.sei.ba.gov.br/index.php?option=com_content&amp;view=article&amp;id=3512&amp;Itemid=995">SEI Saúde</a></p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="saúde-probabilidade-mapas.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb30-2"><a href="saúde-probabilidade-mapas.html#cb30-2" aria-hidden="true" tabindex="-1"></a>populacao_etaria_distsanit <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;data/populacao_etaria_distsanit_v02.csv&quot;</span>, </span>
+<span id="cb30-3"><a href="saúde-probabilidade-mapas.html#cb30-3" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;;&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## Rows: 12 Columns: 20</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;;&quot;
+## chr  (1): DISTSANIT
+## dbl (19): Total, &lt;1, 01-04, 05-09, 10-14, 15-19, 20-24, 25-29, 30-34, 35-39,...</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="saúde-probabilidade-mapas.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(formattable)</span>
+<span id="cb34-2"><a href="saúde-probabilidade-mapas.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="saúde-probabilidade-mapas.html#cb34-3" aria-hidden="true" tabindex="-1"></a>tabela_etaria <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb34-4"><a href="saúde-probabilidade-mapas.html#cb34-4" aria-hidden="true" tabindex="-1"></a>tabela_etaria <span class="ot">&lt;-</span> dplyr<span class="sc">::</span><span class="fu">select</span>(populacao_etaria_distsanit,<span class="sc">-</span>Total)</span>
+<span id="cb34-5"><a href="saúde-probabilidade-mapas.html#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-6"><a href="saúde-probabilidade-mapas.html#cb34-6" aria-hidden="true" tabindex="-1"></a><span class="fu">formattable</span>(tabela_etaria)</span></code></pre></div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:right;">
+DISTSANIT
+</th>
+<th style="text-align:right;">
+&lt;1
+</th>
+<th style="text-align:right;">
+01-04
+</th>
+<th style="text-align:right;">
+05-09
+</th>
+<th style="text-align:right;">
+10-14
+</th>
+<th style="text-align:right;">
+15-19
+</th>
+<th style="text-align:right;">
+20-24
+</th>
+<th style="text-align:right;">
+25-29
+</th>
+<th style="text-align:right;">
+30-34
+</th>
+<th style="text-align:right;">
+35-39
+</th>
+<th style="text-align:right;">
+40-44
+</th>
+<th style="text-align:right;">
+45-49
+</th>
+<th style="text-align:right;">
+50-54
+</th>
+<th style="text-align:right;">
+55-59
+</th>
+<th style="text-align:right;">
+60-64
+</th>
+<th style="text-align:right;">
+65-69
+</th>
+<th style="text-align:right;">
+70-74
+</th>
+<th style="text-align:right;">
+75-79
+</th>
+<th style="text-align:right;">
+80+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:right;">
+1 -Centro Histórico
+</td>
+<td style="text-align:right;">
+655
+</td>
+<td style="text-align:right;">
+2577
+</td>
+<td style="text-align:right;">
+3565
+</td>
+<td style="text-align:right;">
+4404
+</td>
+<td style="text-align:right;">
+5714
+</td>
+<td style="text-align:right;">
+7855
+</td>
+<td style="text-align:right;">
+8003
+</td>
+<td style="text-align:right;">
+6717
+</td>
+<td style="text-align:right;">
+5382
+</td>
+<td style="text-align:right;">
+5372
+</td>
+<td style="text-align:right;">
+5370
+</td>
+<td style="text-align:right;">
+5028
+</td>
+<td style="text-align:right;">
+4043
+</td>
+<td style="text-align:right;">
+3236
+</td>
+<td style="text-align:right;">
+2418
+</td>
+<td style="text-align:right;">
+2131
+</td>
+<td style="text-align:right;">
+1675
+</td>
+<td style="text-align:right;">
+2606
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+2 - Itapagipe
+</td>
+<td style="text-align:right;">
+1910
+</td>
+<td style="text-align:right;">
+8027
+</td>
+<td style="text-align:right;">
+10994
+</td>
+<td style="text-align:right;">
+13544
+</td>
+<td style="text-align:right;">
+13851
+</td>
+<td style="text-align:right;">
+15249
+</td>
+<td style="text-align:right;">
+16989
+</td>
+<td style="text-align:right;">
+15691
+</td>
+<td style="text-align:right;">
+13519
+</td>
+<td style="text-align:right;">
+13566
+</td>
+<td style="text-align:right;">
+12317
+</td>
+<td style="text-align:right;">
+10335
+</td>
+<td style="text-align:right;">
+7750
+</td>
+<td style="text-align:right;">
+5911
+</td>
+<td style="text-align:right;">
+4301
+</td>
+<td style="text-align:right;">
+3629
+</td>
+<td style="text-align:right;">
+2607
+</td>
+<td style="text-align:right;">
+3252
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+3 - São Caetano/Valéria
+</td>
+<td style="text-align:right;">
+3558
+</td>
+<td style="text-align:right;">
+15036
+</td>
+<td style="text-align:right;">
+20846
+</td>
+<td style="text-align:right;">
+24349
+</td>
+<td style="text-align:right;">
+23849
+</td>
+<td style="text-align:right;">
+24980
+</td>
+<td style="text-align:right;">
+28823
+</td>
+<td style="text-align:right;">
+27177
+</td>
+<td style="text-align:right;">
+23431
+</td>
+<td style="text-align:right;">
+21008
+</td>
+<td style="text-align:right;">
+17251
+</td>
+<td style="text-align:right;">
+13924
+</td>
+<td style="text-align:right;">
+9891
+</td>
+<td style="text-align:right;">
+7135
+</td>
+<td style="text-align:right;">
+4935
+</td>
+<td style="text-align:right;">
+3794
+</td>
+<td style="text-align:right;">
+2352
+</td>
+<td style="text-align:right;">
+2603
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+4 - Liberdade
+</td>
+<td style="text-align:right;">
+2038
+</td>
+<td style="text-align:right;">
+8825
+</td>
+<td style="text-align:right;">
+12239
+</td>
+<td style="text-align:right;">
+14434
+</td>
+<td style="text-align:right;">
+15120
+</td>
+<td style="text-align:right;">
+16855
+</td>
+<td style="text-align:right;">
+19871
+</td>
+<td style="text-align:right;">
+18077
+</td>
+<td style="text-align:right;">
+14982
+</td>
+<td style="text-align:right;">
+14507
+</td>
+<td style="text-align:right;">
+13652
+</td>
+<td style="text-align:right;">
+11646
+</td>
+<td style="text-align:right;">
+8625
+</td>
+<td style="text-align:right;">
+6346
+</td>
+<td style="text-align:right;">
+4553
+</td>
+<td style="text-align:right;">
+3759
+</td>
+<td style="text-align:right;">
+2736
+</td>
+<td style="text-align:right;">
+3344
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+5 - Brotas
+</td>
+<td style="text-align:right;">
+2401
+</td>
+<td style="text-align:right;">
+9315
+</td>
+<td style="text-align:right;">
+12448
+</td>
+<td style="text-align:right;">
+14849
+</td>
+<td style="text-align:right;">
+16146
+</td>
+<td style="text-align:right;">
+19841
+</td>
+<td style="text-align:right;">
+22705
+</td>
+<td style="text-align:right;">
+20845
+</td>
+<td style="text-align:right;">
+17880
+</td>
+<td style="text-align:right;">
+17104
+</td>
+<td style="text-align:right;">
+15782
+</td>
+<td style="text-align:right;">
+13469
+</td>
+<td style="text-align:right;">
+10190
+</td>
+<td style="text-align:right;">
+7487
+</td>
+<td style="text-align:right;">
+5232
+</td>
+<td style="text-align:right;">
+4263
+</td>
+<td style="text-align:right;">
+3192
+</td>
+<td style="text-align:right;">
+3951
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+6 - Barra/Rio Vermelho
+</td>
+<td style="text-align:right;">
+3495
+</td>
+<td style="text-align:right;">
+13470
+</td>
+<td style="text-align:right;">
+17789
+</td>
+<td style="text-align:right;">
+21323
+</td>
+<td style="text-align:right;">
+25105
+</td>
+<td style="text-align:right;">
+34207
+</td>
+<td style="text-align:right;">
+37902
+</td>
+<td style="text-align:right;">
+33989
+</td>
+<td style="text-align:right;">
+27957
+</td>
+<td style="text-align:right;">
+26211
+</td>
+<td style="text-align:right;">
+25630
+</td>
+<td style="text-align:right;">
+23281
+</td>
+<td style="text-align:right;">
+19183
+</td>
+<td style="text-align:right;">
+15561
+</td>
+<td style="text-align:right;">
+11554
+</td>
+<td style="text-align:right;">
+9471
+</td>
+<td style="text-align:right;">
+6817
+</td>
+<td style="text-align:right;">
+8987
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+7 - Boca do Rio
+</td>
+<td style="text-align:right;">
+1523
+</td>
+<td style="text-align:right;">
+5975
+</td>
+<td style="text-align:right;">
+7516
+</td>
+<td style="text-align:right;">
+8694
+</td>
+<td style="text-align:right;">
+9720
+</td>
+<td style="text-align:right;">
+13231
+</td>
+<td style="text-align:right;">
+15104
+</td>
+<td style="text-align:right;">
+13983
+</td>
+<td style="text-align:right;">
+11207
+</td>
+<td style="text-align:right;">
+10031
+</td>
+<td style="text-align:right;">
+9531
+</td>
+<td style="text-align:right;">
+8362
+</td>
+<td style="text-align:right;">
+6778
+</td>
+<td style="text-align:right;">
+4835
+</td>
+<td style="text-align:right;">
+3037
+</td>
+<td style="text-align:right;">
+2179
+</td>
+<td style="text-align:right;">
+1402
+</td>
+<td style="text-align:right;">
+1799
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+8 - Itapoã
+</td>
+<td style="text-align:right;">
+3441
+</td>
+<td style="text-align:right;">
+14442
+</td>
+<td style="text-align:right;">
+19180
+</td>
+<td style="text-align:right;">
+21896
+</td>
+<td style="text-align:right;">
+22207
+</td>
+<td style="text-align:right;">
+25355
+</td>
+<td style="text-align:right;">
+28659
+</td>
+<td style="text-align:right;">
+26682
+</td>
+<td style="text-align:right;">
+21567
+</td>
+<td style="text-align:right;">
+19570
+</td>
+<td style="text-align:right;">
+17517
+</td>
+<td style="text-align:right;">
+14893
+</td>
+<td style="text-align:right;">
+11445
+</td>
+<td style="text-align:right;">
+7572
+</td>
+<td style="text-align:right;">
+4905
+</td>
+<td style="text-align:right;">
+3293
+</td>
+<td style="text-align:right;">
+2151
+</td>
+<td style="text-align:right;">
+2446
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+9 - Cabula/Beirú
+</td>
+<td style="text-align:right;">
+5521
+</td>
+<td style="text-align:right;">
+21526
+</td>
+<td style="text-align:right;">
+28897
+</td>
+<td style="text-align:right;">
+33588
+</td>
+<td style="text-align:right;">
+33981
+</td>
+<td style="text-align:right;">
+40442
+</td>
+<td style="text-align:right;">
+47153
+</td>
+<td style="text-align:right;">
+44039
+</td>
+<td style="text-align:right;">
+35179
+</td>
+<td style="text-align:right;">
+30567
+</td>
+<td style="text-align:right;">
+25144
+</td>
+<td style="text-align:right;">
+21353
+</td>
+<td style="text-align:right;">
+16026
+</td>
+<td style="text-align:right;">
+11391
+</td>
+<td style="text-align:right;">
+7100
+</td>
+<td style="text-align:right;">
+4555
+</td>
+<td style="text-align:right;">
+2681
+</td>
+<td style="text-align:right;">
+2910
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+10 - Pau da Lima
+</td>
+<td style="text-align:right;">
+3334
+</td>
+<td style="text-align:right;">
+12910
+</td>
+<td style="text-align:right;">
+17212
+</td>
+<td style="text-align:right;">
+19732
+</td>
+<td style="text-align:right;">
+19698
+</td>
+<td style="text-align:right;">
+22378
+</td>
+<td style="text-align:right;">
+25989
+</td>
+<td style="text-align:right;">
+24560
+</td>
+<td style="text-align:right;">
+20144
+</td>
+<td style="text-align:right;">
+17443
+</td>
+<td style="text-align:right;">
+14352
+</td>
+<td style="text-align:right;">
+11593
+</td>
+<td style="text-align:right;">
+8496
+</td>
+<td style="text-align:right;">
+5953
+</td>
+<td style="text-align:right;">
+3943
+</td>
+<td style="text-align:right;">
+2577
+</td>
+<td style="text-align:right;">
+1589
+</td>
+<td style="text-align:right;">
+1648
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+11- Subúrbio Ferroviário
+</td>
+<td style="text-align:right;">
+4843
+</td>
+<td style="text-align:right;">
+19623
+</td>
+<td style="text-align:right;">
+26960
+</td>
+<td style="text-align:right;">
+31002
+</td>
+<td style="text-align:right;">
+31040
+</td>
+<td style="text-align:right;">
+32279
+</td>
+<td style="text-align:right;">
+35995
+</td>
+<td style="text-align:right;">
+32583
+</td>
+<td style="text-align:right;">
+27284
+</td>
+<td style="text-align:right;">
+24499
+</td>
+<td style="text-align:right;">
+21032
+</td>
+<td style="text-align:right;">
+17654
+</td>
+<td style="text-align:right;">
+13163
+</td>
+<td style="text-align:right;">
+9303
+</td>
+<td style="text-align:right;">
+6213
+</td>
+<td style="text-align:right;">
+4473
+</td>
+<td style="text-align:right;">
+2843
+</td>
+<td style="text-align:right;">
+3206
+</td>
+</tr>
+<tr>
+<td style="text-align:right;">
+12 - Cajazeiras
+</td>
+<td style="text-align:right;">
+2352
+</td>
+<td style="text-align:right;">
+9691
+</td>
+<td style="text-align:right;">
+13094
+</td>
+<td style="text-align:right;">
+15290
+</td>
+<td style="text-align:right;">
+14831
+</td>
+<td style="text-align:right;">
+15968
+</td>
+<td style="text-align:right;">
+17989
+</td>
+<td style="text-align:right;">
+16731
+</td>
+<td style="text-align:right;">
+13710
+</td>
+<td style="text-align:right;">
+12262
+</td>
+<td style="text-align:right;">
+10855
+</td>
+<td style="text-align:right;">
+9538
+</td>
+<td style="text-align:right;">
+6892
+</td>
+<td style="text-align:right;">
+4329
+</td>
+<td style="text-align:right;">
+2544
+</td>
+<td style="text-align:right;">
+1645
+</td>
+<td style="text-align:right;">
+1020
+</td>
+<td style="text-align:right;">
+1085
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="saúde-probabilidade-mapas.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">formattable</span>(tabela_etaria, <span class="at">align =</span> <span class="fu">c</span>(<span class="st">&quot;l&quot;</span>,<span class="fu">rep</span>(<span class="st">&quot;r&quot;</span>, <span class="fu">NCOL</span>(tabela_etaria) <span class="sc">-</span> <span class="dv">1</span>)), <span class="fu">list</span>(</span>
+<span id="cb35-2"><a href="saúde-probabilidade-mapas.html#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">DISTSANIT =</span> <span class="fu">formatter</span>(<span class="st">&quot;span&quot;</span>, <span class="at">style =</span> <span class="sc">~</span> <span class="fu">style</span>(<span class="at">color =</span> <span class="st">&quot;grey&quot;</span>,<span class="at">font.weight =</span> <span class="st">&quot;bold&quot;</span>)), </span>
+<span id="cb35-3"><a href="saúde-probabilidade-mapas.html#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">area</span>(<span class="at">col =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">7</span>) <span class="sc">~</span> <span class="fu">color_tile</span>(<span class="st">&quot;#DeF7E9&quot;</span>, <span class="st">&quot;#71CA97&quot;</span>)))</span></code></pre></div>
+<table class="table table-condensed">
+<thead>
+<tr>
+<th style="text-align:left;">
+DISTSANIT
+</th>
+<th style="text-align:right;">
+&lt;1
+</th>
+<th style="text-align:right;">
+01-04
+</th>
+<th style="text-align:right;">
+05-09
+</th>
+<th style="text-align:right;">
+10-14
+</th>
+<th style="text-align:right;">
+15-19
+</th>
+<th style="text-align:right;">
+20-24
+</th>
+<th style="text-align:right;">
+25-29
+</th>
+<th style="text-align:right;">
+30-34
+</th>
+<th style="text-align:right;">
+35-39
+</th>
+<th style="text-align:right;">
+40-44
+</th>
+<th style="text-align:right;">
+45-49
+</th>
+<th style="text-align:right;">
+50-54
+</th>
+<th style="text-align:right;">
+55-59
+</th>
+<th style="text-align:right;">
+60-64
+</th>
+<th style="text-align:right;">
+65-69
+</th>
+<th style="text-align:right;">
+70-74
+</th>
+<th style="text-align:right;">
+75-79
+</th>
+<th style="text-align:right;">
+80+
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">1 -Centro Histórico </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #def7e9">655</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d8f4e5">2577</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6f3e3">3565</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d3f2e1">4404</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d0f1de">5714</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #caeeda">7855</span>
+</td>
+<td style="text-align:right;">
+8003
+</td>
+<td style="text-align:right;">
+6717
+</td>
+<td style="text-align:right;">
+5382
+</td>
+<td style="text-align:right;">
+5372
+</td>
+<td style="text-align:right;">
+5370
+</td>
+<td style="text-align:right;">
+5028
+</td>
+<td style="text-align:right;">
+4043
+</td>
+<td style="text-align:right;">
+3236
+</td>
+<td style="text-align:right;">
+2418
+</td>
+<td style="text-align:right;">
+2131
+</td>
+<td style="text-align:right;">
+1675
+</td>
+<td style="text-align:right;">
+2606
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">2 - Itapagipe </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #daf5e6">1910</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c9eed9">8027</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c1ebd3">10994</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bae8ce">13544</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b9e8cd">13851</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b6e6ca">15249</span>
+</td>
+<td style="text-align:right;">
+16989
+</td>
+<td style="text-align:right;">
+15691
+</td>
+<td style="text-align:right;">
+13519
+</td>
+<td style="text-align:right;">
+13566
+</td>
+<td style="text-align:right;">
+12317
+</td>
+<td style="text-align:right;">
+10335
+</td>
+<td style="text-align:right;">
+7750
+</td>
+<td style="text-align:right;">
+5911
+</td>
+<td style="text-align:right;">
+4301
+</td>
+<td style="text-align:right;">
+3629
+</td>
+<td style="text-align:right;">
+2607
+</td>
+<td style="text-align:right;">
+3252
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">3 - São Caetano/Valéria </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6f3e3">3558</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b6e6cb">15036</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a6e0bf">20846</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #9ddcb8">24349</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #9edcb9">23849</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #9bdbb6">24980</span>
+</td>
+<td style="text-align:right;">
+28823
+</td>
+<td style="text-align:right;">
+27177
+</td>
+<td style="text-align:right;">
+23431
+</td>
+<td style="text-align:right;">
+21008
+</td>
+<td style="text-align:right;">
+17251
+</td>
+<td style="text-align:right;">
+13924
+</td>
+<td style="text-align:right;">
+9891
+</td>
+<td style="text-align:right;">
+7135
+</td>
+<td style="text-align:right;">
+4935
+</td>
+<td style="text-align:right;">
+3794
+</td>
+<td style="text-align:right;">
+2352
+</td>
+<td style="text-align:right;">
+2603
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">4 - Liberdade </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #daf5e6">2038</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c7edd8">8825</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bee9d1">12239</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b8e7cc">14434</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b6e6cb">15120</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b1e4c7">16855</span>
+</td>
+<td style="text-align:right;">
+19871
+</td>
+<td style="text-align:right;">
+18077
+</td>
+<td style="text-align:right;">
+14982
+</td>
+<td style="text-align:right;">
+14507
+</td>
+<td style="text-align:right;">
+13652
+</td>
+<td style="text-align:right;">
+11646
+</td>
+<td style="text-align:right;">
+8625
+</td>
+<td style="text-align:right;">
+6346
+</td>
+<td style="text-align:right;">
+4553
+</td>
+<td style="text-align:right;">
+3759
+</td>
+<td style="text-align:right;">
+2736
+</td>
+<td style="text-align:right;">
+3344
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">5 - Brotas </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d9f5e5">2401</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c6edd7">9315</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bde9d0">12448</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b7e6cb">14849</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b3e5c9">16146</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a9e1c1">19841</span>
+</td>
+<td style="text-align:right;">
+22705
+</td>
+<td style="text-align:right;">
+20845
+</td>
+<td style="text-align:right;">
+17880
+</td>
+<td style="text-align:right;">
+17104
+</td>
+<td style="text-align:right;">
+15782
+</td>
+<td style="text-align:right;">
+13469
+</td>
+<td style="text-align:right;">
+10190
+</td>
+<td style="text-align:right;">
+7487
+</td>
+<td style="text-align:right;">
+5232
+</td>
+<td style="text-align:right;">
+4263
+</td>
+<td style="text-align:right;">
+3192
+</td>
+<td style="text-align:right;">
+3951
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">6 - Barra/Rio Vermelho </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6f3e3">3495</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bae8ce">13470</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #afe3c5">17789</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a5dfbe">21323</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #9bdbb6">25105</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #82d1a3">34207</span>
+</td>
+<td style="text-align:right;">
+37902
+</td>
+<td style="text-align:right;">
+33989
+</td>
+<td style="text-align:right;">
+27957
+</td>
+<td style="text-align:right;">
+26211
+</td>
+<td style="text-align:right;">
+25630
+</td>
+<td style="text-align:right;">
+23281
+</td>
+<td style="text-align:right;">
+19183
+</td>
+<td style="text-align:right;">
+15561
+</td>
+<td style="text-align:right;">
+11554
+</td>
+<td style="text-align:right;">
+9471
+</td>
+<td style="text-align:right;">
+6817
+</td>
+<td style="text-align:right;">
+8987
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">7 - Boca do Rio </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #dbf6e7">1523</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cff0de">5975</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #cbefda">7516</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c7edd8">8694</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c5ecd6">9720</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bbe8cf">13231</span>
+</td>
+<td style="text-align:right;">
+15104
+</td>
+<td style="text-align:right;">
+13983
+</td>
+<td style="text-align:right;">
+11207
+</td>
+<td style="text-align:right;">
+10031
+</td>
+<td style="text-align:right;">
+9531
+</td>
+<td style="text-align:right;">
+8362
+</td>
+<td style="text-align:right;">
+6778
+</td>
+<td style="text-align:right;">
+4835
+</td>
+<td style="text-align:right;">
+3037
+</td>
+<td style="text-align:right;">
+2179
+</td>
+<td style="text-align:right;">
+1402
+</td>
+<td style="text-align:right;">
+1799
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">8 - Itapoã </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6f3e3">3441</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b8e7cc">14442</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #abe2c2">19180</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a3debd">21896</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a2debc">22207</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #9adbb6">25355</span>
+</td>
+<td style="text-align:right;">
+28659
+</td>
+<td style="text-align:right;">
+26682
+</td>
+<td style="text-align:right;">
+21567
+</td>
+<td style="text-align:right;">
+19570
+</td>
+<td style="text-align:right;">
+17517
+</td>
+<td style="text-align:right;">
+14893
+</td>
+<td style="text-align:right;">
+11445
+</td>
+<td style="text-align:right;">
+7572
+</td>
+<td style="text-align:right;">
+4905
+</td>
+<td style="text-align:right;">
+3293
+</td>
+<td style="text-align:right;">
+2151
+</td>
+<td style="text-align:right;">
+2446
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">9 - Cabula/Beirú </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d0f1de">5521</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a4dfbd">21526</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #90d7ae">28897</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #83d1a5">33588</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #82d1a4">33981</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #71ca97">40442</span>
+</td>
+<td style="text-align:right;">
+47153
+</td>
+<td style="text-align:right;">
+44039
+</td>
+<td style="text-align:right;">
+35179
+</td>
+<td style="text-align:right;">
+30567
+</td>
+<td style="text-align:right;">
+25144
+</td>
+<td style="text-align:right;">
+21353
+</td>
+<td style="text-align:right;">
+16026
+</td>
+<td style="text-align:right;">
+11391
+</td>
+<td style="text-align:right;">
+7100
+</td>
+<td style="text-align:right;">
+4555
+</td>
+<td style="text-align:right;">
+2681
+</td>
+<td style="text-align:right;">
+2910
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">10 - Pau da Lima </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d6f3e3">3334</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bce9cf">12910</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b0e4c6">17212</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a9e1c1">19732</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a9e1c1">19698</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #a2debc">22378</span>
+</td>
+<td style="text-align:right;">
+25989
+</td>
+<td style="text-align:right;">
+24560
+</td>
+<td style="text-align:right;">
+20144
+</td>
+<td style="text-align:right;">
+17443
+</td>
+<td style="text-align:right;">
+14352
+</td>
+<td style="text-align:right;">
+11593
+</td>
+<td style="text-align:right;">
+8496
+</td>
+<td style="text-align:right;">
+5953
+</td>
+<td style="text-align:right;">
+3943
+</td>
+<td style="text-align:right;">
+2577
+</td>
+<td style="text-align:right;">
+1589
+</td>
+<td style="text-align:right;">
+1648
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">11- Subúrbio Ferroviário</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d2f2e0">4843</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #aae1c1">19623</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #95d9b2">26960</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8ad4aa">31002</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #8ad4aa">31040</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #87d3a7">32279</span>
+</td>
+<td style="text-align:right;">
+35995
+</td>
+<td style="text-align:right;">
+32583
+</td>
+<td style="text-align:right;">
+27284
+</td>
+<td style="text-align:right;">
+24499
+</td>
+<td style="text-align:right;">
+21032
+</td>
+<td style="text-align:right;">
+17654
+</td>
+<td style="text-align:right;">
+13163
+</td>
+<td style="text-align:right;">
+9303
+</td>
+<td style="text-align:right;">
+6213
+</td>
+<td style="text-align:right;">
+4473
+</td>
+<td style="text-align:right;">
+2843
+</td>
+<td style="text-align:right;">
+3206
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+<span style="color: grey; font-weight: bold">12 - Cajazeiras </span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #d9f5e5">2352</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #c5ecd6">9691</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #bbe8cf">13094</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b5e6ca">15290</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b7e6cb">14831</span>
+</td>
+<td style="text-align:right;">
+<span style="display: block; padding: 0 4px; border-radius: 4px; background-color: #b4e5c9">15968</span>
+</td>
+<td style="text-align:right;">
+17989
+</td>
+<td style="text-align:right;">
+16731
+</td>
+<td style="text-align:right;">
+13710
+</td>
+<td style="text-align:right;">
+12262
+</td>
+<td style="text-align:right;">
+10855
+</td>
+<td style="text-align:right;">
+9538
+</td>
+<td style="text-align:right;">
+6892
+</td>
+<td style="text-align:right;">
+4329
+</td>
+<td style="text-align:right;">
+2544
+</td>
+<td style="text-align:right;">
+1645
+</td>
+<td style="text-align:right;">
+1020
+</td>
+<td style="text-align:right;">
+1085
+</td>
+</tr>
+</tbody>
+</table>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="saúde-probabilidade-mapas.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sparkline)</span>
+<span id="cb36-2"><a href="saúde-probabilidade-mapas.html#cb36-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(htmltools)</span>
+<span id="cb36-3"><a href="saúde-probabilidade-mapas.html#cb36-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="st">`</span><span class="at">Distritos</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>,<span class="dv">1</span>])),</span>
+<span id="cb36-4"><a href="saúde-probabilidade-mapas.html#cb36-4" aria-hidden="true" tabindex="-1"></a>                <span class="st">`</span><span class="at">Barras</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">1</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-5"><a href="saúde-probabilidade-mapas.html#cb36-5" aria-hidden="true" tabindex="-1"></a>                  <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">2</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-6"><a href="saúde-probabilidade-mapas.html#cb36-6" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">3</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),  </span>
+<span id="cb36-7"><a href="saúde-probabilidade-mapas.html#cb36-7" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">4</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-8"><a href="saúde-probabilidade-mapas.html#cb36-8" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">5</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),    </span>
+<span id="cb36-9"><a href="saúde-probabilidade-mapas.html#cb36-9" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">6</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-10"><a href="saúde-probabilidade-mapas.html#cb36-10" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">7</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-11"><a href="saúde-probabilidade-mapas.html#cb36-11" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">8</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-12"><a href="saúde-probabilidade-mapas.html#cb36-12" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">9</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),  </span>
+<span id="cb36-13"><a href="saúde-probabilidade-mapas.html#cb36-13" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">10</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-14"><a href="saúde-probabilidade-mapas.html#cb36-14" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">11</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>))),</span>
+<span id="cb36-15"><a href="saúde-probabilidade-mapas.html#cb36-15" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">as.character</span>(htmltools<span class="sc">::</span><span class="fu">as.tags</span>(<span class="fu">sparkline</span>(<span class="fu">as.vector</span>(<span class="fu">unname</span>(tabela_etaria[<span class="dv">12</span>,<span class="dv">2</span><span class="sc">:</span><span class="dv">19</span>])), <span class="at">type =</span> <span class="st">&quot;bar&quot;</span>)))</span>
+<span id="cb36-16"><a href="saúde-probabilidade-mapas.html#cb36-16" aria-hidden="true" tabindex="-1"></a>                  ))</span>
+<span id="cb36-17"><a href="saúde-probabilidade-mapas.html#cb36-17" aria-hidden="true" tabindex="-1"></a>out <span class="ot">=</span> <span class="fu">as.htmlwidget</span>(<span class="fu">formattable</span>(df))</span>
+<span id="cb36-18"><a href="saúde-probabilidade-mapas.html#cb36-18" aria-hidden="true" tabindex="-1"></a>out<span class="sc">$</span>dependencies <span class="ot">=</span> <span class="fu">c</span>(out<span class="sc">$</span>dependencies, htmlwidgets<span class="sc">:::</span><span class="fu">widget_dependencies</span>(<span class="st">&quot;sparkline&quot;</span>, <span class="st">&quot;sparkline&quot;</span>))</span>
+<span id="cb36-19"><a href="saúde-probabilidade-mapas.html#cb36-19" aria-hidden="true" tabindex="-1"></a>out</span></code></pre></div>
+<div id="htmlwidget-48c8d1fd70fdc066d8ec" class="formattable_widget html-widget" style="width:100%;height:480px;" width="100%" height="480"></div>
+<script type="application/json" data-for="htmlwidget-48c8d1fd70fdc066d8ec">{"x":{"html":"<table class=\"table table-condensed\">\n <thead>\n  <tr>\n   <th style=\"text-align:right;\"> Distritos <\/th>\n   <th style=\"text-align:right;\"> Barras <\/th>\n  <\/tr>\n <\/thead>\n<tbody>\n  <tr>\n   <td style=\"text-align:right;\"> 1 -Centro Histórico <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-bb0e6d1b4406da3db093\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-bb0e6d1b4406da3db093\">{\"x\":{\"values\":[[655],[2577],[3565],[4404],[5714],[7855],[8003],[6717],[5382],[5372],[5370],[5028],[4043],[3236],[2418],[2131],[1675],[2606]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 2 - Itapagipe <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-bee5d8226d6f09bf35b9\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-bee5d8226d6f09bf35b9\">{\"x\":{\"values\":[[1910],[8027],[10994],[13544],[13851],[15249],[16989],[15691],[13519],[13566],[12317],[10335],[7750],[5911],[4301],[3629],[2607],[3252]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 3 - São Caetano/Valéria <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-709425ee216cef712711\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-709425ee216cef712711\">{\"x\":{\"values\":[[3558],[15036],[20846],[24349],[23849],[24980],[28823],[27177],[23431],[21008],[17251],[13924],[9891],[7135],[4935],[3794],[2352],[2603]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 4 - Liberdade <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-f7aa9b565df10ea86d08\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-f7aa9b565df10ea86d08\">{\"x\":{\"values\":[[2038],[8825],[12239],[14434],[15120],[16855],[19871],[18077],[14982],[14507],[13652],[11646],[8625],[6346],[4553],[3759],[2736],[3344]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 5 - Brotas <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-1d6b6faeeabfdc9a4da9\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-1d6b6faeeabfdc9a4da9\">{\"x\":{\"values\":[[2401],[9315],[12448],[14849],[16146],[19841],[22705],[20845],[17880],[17104],[15782],[13469],[10190],[7487],[5232],[4263],[3192],[3951]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 6 - Barra/Rio Vermelho <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-0235f8b6d8b52134c6fc\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-0235f8b6d8b52134c6fc\">{\"x\":{\"values\":[[3495],[13470],[17789],[21323],[25105],[34207],[37902],[33989],[27957],[26211],[25630],[23281],[19183],[15561],[11554],[9471],[6817],[8987]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 7 - Boca do Rio <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-aacbb8c554ae0f393f01\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-aacbb8c554ae0f393f01\">{\"x\":{\"values\":[[1523],[5975],[7516],[8694],[9720],[13231],[15104],[13983],[11207],[10031],[9531],[8362],[6778],[4835],[3037],[2179],[1402],[1799]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 8 - Itapoã <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-442ab261140574d224fc\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-442ab261140574d224fc\">{\"x\":{\"values\":[[3441],[14442],[19180],[21896],[22207],[25355],[28659],[26682],[21567],[19570],[17517],[14893],[11445],[7572],[4905],[3293],[2151],[2446]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 9 - Cabula/Beirú <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-0a228baae81371591f72\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-0a228baae81371591f72\">{\"x\":{\"values\":[[5521],[21526],[28897],[33588],[33981],[40442],[47153],[44039],[35179],[30567],[25144],[21353],[16026],[11391],[7100],[4555],[2681],[2910]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 10 - Pau da Lima <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-147c77903c2fe23e505e\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-147c77903c2fe23e505e\">{\"x\":{\"values\":[[3334],[12910],[17212],[19732],[19698],[22378],[25989],[24560],[20144],[17443],[14352],[11593],[8496],[5953],[3943],[2577],[1589],[1648]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 11- Subúrbio Ferroviário <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-a983adc642ae7ceb4a4d\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-a983adc642ae7ceb4a4d\">{\"x\":{\"values\":[[4843],[19623],[26960],[31002],[31040],[32279],[35995],[32583],[27284],[24499],[21032],[17654],[13163],[9303],[6213],[4473],[2843],[3206]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n  <tr>\n   <td style=\"text-align:right;\"> 12 - Cajazeiras <\/td>\n   <td style=\"text-align:right;\"> <span id=\"htmlwidget-4c92785314b13c0f94c6\" class=\"sparkline html-widget\"><\/span>\n<script type=\"application/json\" data-for=\"htmlwidget-4c92785314b13c0f94c6\">{\"x\":{\"values\":[[2352],[9691],[13094],[15290],[14831],[15968],[17989],[16731],[13710],[12262],[10855],[9538],[6892],[4329],[2544],[1645],[1020],[1085]],\"options\":{\"type\":\"bar\",\"height\":20,\"width\":60},\"width\":60,\"height\":20},\"evals\":[],\"jsHooks\":[]}<\/script> <\/td>\n  <\/tr>\n<\/tbody>\n<\/table>"},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="informações-sobre-câncer" class="section level2" number="7.6">
+<h2><span class="header-section-number">7.6</span> Informações sobre câncer</h2>
+<p><a href="https://mortalidade.inca.gov.br/MortalidadeWeb/pages/Modelo03/consultar.xhtml">INCA</a></p>
+</div>
+<div id="divisão-dos-distritos-sanitários" class="section level2" number="7.7">
+<h2><span class="header-section-number">7.7</span> Divisão dos distritos sanitários</h2>
+<p><a href="http://geolivre.saude.ba.gov.br/geoportal/map.phtml?language=br">Informações mapas</a></p>
+</div>
+<div id="doenças-de-condições-crônicas-e-infecções-sexualmente-transmissíveis" class="section level2" number="7.8">
+<h2><span class="header-section-number">7.8</span> Doenças de Condições Crônicas e Infecções Sexualmente Transmissíveis</h2>
+<p><a href="http://www.aids.gov.br/">IST</a></p>
+</div>
+<div id="tabnet-salvador" class="section level2" number="7.9">
+<h2><span class="header-section-number">7.9</span> Tabnet Salvador</h2>
+</div>
+<div id="histogramas" class="section level2" number="7.10">
+<h2><span class="header-section-number">7.10</span> Histogramas</h2>
+</div>
+<div id="probabilidade-versus-possibilidade" class="section level2" number="7.11">
+<h2><span class="header-section-number">7.11</span> Probabilidade versus possibilidade</h2>
+<ul>
+<li>Introdução a conjuntos (Usar diagrama de Venn): quais os eventos que podemos ter nas eleições? Temos eventos: Válidos, Nulos, Branco, Faltantes.
+Interseção: 1° turno e 2° turno (é possível ter interseção entre as possibilidades)</li>
+<li>Frequência relativa: total de votos possíveis x a proporção em que ocorrem.
+Trazer argumentos sobre Fake News de cancelamento de eleição.
+Frequência: A frequência de pessoas que votaram, não votaram, votaram nulo.</li>
+<li>Trazer a ideia de equiprobabilidade pela visualização por heatmap;</li>
+<li>Variável aleatória: mostrar a variabilidade.</li>
+<li>Distribuição de probabilidade: classes de voto. Ex: investigar classes de votos para cada seção e montar histograma para cada um e interpretar a curva.
+Distribuição Uniforme.
+normal</li>
+</ul>
+<p>Ao final do capítulo, citar as incertezas na informação. Por exemplo, pessoas que não atualizam o título para os locais de moradia, pessoas que morrem e ainda não estão atualizadas na base…</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dashboards.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="references.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["anotacoes_trein_r.pdf", "anotacoes_trein_r.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

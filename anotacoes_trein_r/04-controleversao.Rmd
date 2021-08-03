@@ -1,0 +1,12 @@
+# Controle de versões de projetos 
+
+Seguir orientações da apresentação da [Beatriz Milz](https://beatrizmilz.github.io/RLadies-Git-RStudio-2019/#1)
+
+ - Instalação do Git no computador;
+ - Criar Conta no Github;
+ - Configurar Git no Rstudio;
+ - Criar projeto no Github;
+ - Testar push e pull.
+ 
+ 
+

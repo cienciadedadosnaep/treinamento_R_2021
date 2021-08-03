@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Dashboards | Anotações do treinamento R</title>
+  <meta name="description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Dashboards | Anotações do treinamento R" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Dashboards | Anotações do treinamento R" />
+  
+  <meta name="twitter:description" content="Este minicurso é dedicado aos integrantes do projeto Ciência de Dados na Escolas Pública." />
+  
+
+<meta name="author" content="Robson Wilson Silva Pessoa" />
+
+
+<meta name="date" content="2021-08-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="controle-de-versões-de-projetos.html"/>
+<link rel="next" href="saúde-probabilidade-mapas.html"/>
+<script src="libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/formattable_widget-binding-0.2.1/formattable_widget.js"></script>
+<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-Requisitos</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Instalações e configurações</a></li>
+<li class="chapter" data-level="3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html"><i class="fa fa-check"></i><b>3</b> Manipulação de dados</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importanto-conjunto-de-dados"><i class="fa fa-check"></i><b>3.1</b> Importanto conjunto de dados</a></li>
+<li class="chapter" data-level="3.2" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#objetos-e-vetores"><i class="fa fa-check"></i><b>3.2</b> Objetos e vetores</a></li>
+<li class="chapter" data-level="3.3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data frames</a></li>
+<li class="chapter" data-level="3.4" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-de-seleção"><i class="fa fa-check"></i><b>3.4</b> Operadores de seleção</a></li>
+<li class="chapter" data-level="3.5" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#utilizando-e-criando-funções-no-r"><i class="fa fa-check"></i><b>3.5</b> Utilizando e criando funções no R</a></li>
+<li class="chapter" data-level="3.6" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-lógicos-e-aritméticos"><i class="fa fa-check"></i><b>3.6</b> Operadores lógicos e aritméticos</a></li>
+<li class="chapter" data-level="3.7" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#loopings-de-programação-for-e-while"><i class="fa fa-check"></i><b>3.7</b> Loopings de programação: for e while</a></li>
+<li class="chapter" data-level="3.8" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#o-operador-pipe"><i class="fa fa-check"></i><b>3.8</b> O operador pipe (%&gt;%)</a></li>
+<li class="chapter" data-level="3.9" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-de-texto-.csv-e-.txt"><i class="fa fa-check"></i><b>3.9</b> Importando arquivos de texto: .csv e .txt</a></li>
+<li class="chapter" data-level="3.10" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-excel-.xls-e-.xlsx"><i class="fa fa-check"></i><b>3.10</b> Importando arquivos excel: .xls e .xlsx</a></li>
+<li class="chapter" data-level="3.11" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#manipulação-de-bases-de-dados-o-pacote-dplyr"><i class="fa fa-check"></i><b>3.11</b> Manipulação de bases de dados (o pacote dplyr)"</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="atividades.html"><a href="atividades.html"><i class="fa fa-check"></i><b>4</b> Atividades</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="atividades.html"><a href="atividades.html#carregamento-de-bibliotecas-e-dados"><i class="fa fa-check"></i><b>4.1</b> Carregamento de bibliotecas e dados</a></li>
+<li class="chapter" data-level="4.2" data-path="atividades.html"><a href="atividades.html#exemplo-de-aplicação-do-lubridate"><i class="fa fa-check"></i><b>4.2</b> Exemplo de aplicação do Lubridate</a></li>
+<li class="chapter" data-level="4.3" data-path="atividades.html"><a href="atividades.html#uso-do-data-table-dt"><i class="fa fa-check"></i><b>4.3</b> Uso do <em>Data Table</em> (DT)</a></li>
+<li class="chapter" data-level="4.4" data-path="atividades.html"><a href="atividades.html#resolução-de-situações-problemas"><i class="fa fa-check"></i><b>4.4</b> Resolução de situações problemas</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="atividades.html"><a href="atividades.html#código-filtros-e-seleções"><i class="fa fa-check"></i><b>4.4.1</b> Código filtros e seleções</a></li>
+<li class="chapter" data-level="4.4.2" data-path="atividades.html"><a href="atividades.html#código---manipulação-de-datas"><i class="fa fa-check"></i><b>4.4.2</b> Código - manipulação de datas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="atividades.html"><a href="atividades.html#código-gráficos"><i class="fa fa-check"></i><b>4.4.3</b> Código Gráficos</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="controle-de-versões-de-projetos.html"><a href="controle-de-versões-de-projetos.html"><i class="fa fa-check"></i><b>5</b> Controle de versões de projetos</a></li>
+<li class="chapter" data-level="6" data-path="dashboards.html"><a href="dashboards.html"><i class="fa fa-check"></i><b>6</b> Dashboards</a></li>
+<li class="chapter" data-level="7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html"><i class="fa fa-check"></i><b>7</b> Saúde - Probabilidade - Mapas</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#recursos-físicos-e-humanos-da-rede-assistencial-de-saúde"><i class="fa fa-check"></i><b>7.1</b> Recursos físicos e humanos da rede assistencial de saúde</a></li>
+<li class="chapter" data-level="7.2" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#objetivo-de-desenvolvimento-sustentável"><i class="fa fa-check"></i><b>7.2</b> Objetivo de Desenvolvimento Sustentável</a></li>
+<li class="chapter" data-level="7.3" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#ibge-pense"><i class="fa fa-check"></i><b>7.3</b> IBGE PENSE</a></li>
+<li class="chapter" data-level="7.4" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#sisvan"><i class="fa fa-check"></i><b>7.4</b> SISVAN</a></li>
+<li class="chapter" data-level="7.5" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-saúde-sei"><i class="fa fa-check"></i><b>7.5</b> Informações sobre saúde SEI</a></li>
+<li class="chapter" data-level="7.6" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-câncer"><i class="fa fa-check"></i><b>7.6</b> Informações sobre câncer</a></li>
+<li class="chapter" data-level="7.7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#divisão-dos-distritos-sanitários"><i class="fa fa-check"></i><b>7.7</b> Divisão dos distritos sanitários</a></li>
+<li class="chapter" data-level="7.8" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#doenças-de-condições-crônicas-e-infecções-sexualmente-transmissíveis"><i class="fa fa-check"></i><b>7.8</b> Doenças de Condições Crônicas e Infecções Sexualmente Transmissíveis</a></li>
+<li class="chapter" data-level="7.9" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#tabnet-salvador"><i class="fa fa-check"></i><b>7.9</b> Tabnet Salvador</a></li>
+<li class="chapter" data-level="7.10" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#histogramas"><i class="fa fa-check"></i><b>7.10</b> Histogramas</a></li>
+<li class="chapter" data-level="7.11" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#probabilidade-versus-possibilidade"><i class="fa fa-check"></i><b>7.11</b> Probabilidade versus possibilidade</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Anotações do treinamento R</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dashboards" class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Dashboards</h1>
+<p>Exemplo de <em>dashboard</em> desenvolvido ao longo do nosso
+curso:</p>
+<ul>
+<li><a href="https://github.com/rpessoa1983/indicadores_ssp">Flexdashboard - Indicadores de Segurança Pública</a></li>
+<li><a href="https://robsonpessoa.shinyapps.io/ssp_indicadores/">Shiny - Indicadores de Segurança Pública</a></li>
+</ul>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="controle-de-versões-de-projetos.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="saúde-probabilidade-mapas.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["anotacoes_trein_r.pdf", "anotacoes_trein_r.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

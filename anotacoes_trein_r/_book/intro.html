@@ -24,7 +24,7 @@
 <meta name="author" content="Robson Wilson Silva Pessoa" />
 
 
-<meta name="date" content="2021-07-19" />
+<meta name="date" content="2021-08-03" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,9 +32,9 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="primeiros-passos.html"/>
+<link rel="next" href="manipulação-de-dados.html"/>
 <script src="libs/header-attrs-2.9/header-attrs.js"></script>
-<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/jquery-3.5.1/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -53,6 +53,32 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/htmlwidgets-1.5.3/htmlwidgets.js"></script>
+<link href="libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet" />
+<script src="libs/datatables-binding-0.18/datatables.js"></script>
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="libs/dt-core-1.10.20/css/jquery.dataTables.extra.css" rel="stylesheet" />
+<script src="libs/dt-core-1.10.20/js/jquery.dataTables.min.js"></script>
+<link href="libs/crosstalk-1.1.1/css/crosstalk.css" rel="stylesheet" />
+<script src="libs/crosstalk-1.1.1/js/crosstalk.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="libs/formattable_widget-binding-0.2.1/formattable_widget.js"></script>
+<link href="libs/jquery-sparkline-2.1.2/jquery.sparkline.css" rel="stylesheet" />
+<script src="libs/jquery-sparkline-2.1.2/jquery.sparkline.js"></script>
+<script src="libs/sparkline-binding-2.0/sparkline.js"></script>
 
 
 <style type="text/css">
@@ -134,36 +160,51 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">Treinamento em R para CDnaEp</a></li>
-
-<li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Pré-Requisitos</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Instalações e configurações</a></li>
-<li class="chapter" data-level="3" data-path="primeiros-passos.html"><a href="primeiros-passos.html"><i class="fa fa-check"></i><b>3</b> Primeiros passos</a>
+<li class="chapter" data-level="3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html"><i class="fa fa-check"></i><b>3</b> Manipulação de dados</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="primeiros-passos.html"><a href="primeiros-passos.html#objetos-e-vetores"><i class="fa fa-check"></i><b>3.1</b> Objetos e vetores</a></li>
-<li class="chapter" data-level="3.2" data-path="primeiros-passos.html"><a href="primeiros-passos.html#classes-números-caracteres-lógicos-e-data-frames"><i class="fa fa-check"></i><b>3.2</b> Classes: números, caracteres, lógicos e data frames</a></li>
-<li class="chapter" data-level="3.3" data-path="primeiros-passos.html"><a href="primeiros-passos.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data frames</a></li>
-<li class="chapter" data-level="3.4" data-path="primeiros-passos.html"><a href="primeiros-passos.html#operadores-de-seleção"><i class="fa fa-check"></i><b>3.4</b> Operadores de seleção</a></li>
-<li class="chapter" data-level="3.5" data-path="primeiros-passos.html"><a href="primeiros-passos.html#utilizando-e-criando-funções-no-r"><i class="fa fa-check"></i><b>3.5</b> Utilizando e criando funções no R</a></li>
-<li class="chapter" data-level="3.6" data-path="primeiros-passos.html"><a href="primeiros-passos.html#operadores-lógicos-e-aritméticos"><i class="fa fa-check"></i><b>3.6</b> Operadores lógicos e aritméticos</a></li>
-<li class="chapter" data-level="3.7" data-path="primeiros-passos.html"><a href="primeiros-passos.html#loopings-de-programação-for-e-while"><i class="fa fa-check"></i><b>3.7</b> Loopings de programação: for e while</a></li>
-<li class="chapter" data-level="3.8" data-path="primeiros-passos.html"><a href="primeiros-passos.html#o-operador-pipe"><i class="fa fa-check"></i><b>3.8</b> O operador pipe (%&gt;%)</a></li>
-<li class="chapter" data-level="3.9" data-path="primeiros-passos.html"><a href="primeiros-passos.html#importando-arquivos-de-texto-.csv-e-.txt"><i class="fa fa-check"></i><b>3.9</b> Importando arquivos de texto: .csv e .txt</a></li>
-<li class="chapter" data-level="3.10" data-path="primeiros-passos.html"><a href="primeiros-passos.html#importando-arquivos-excel-.xls-e-.xlsx"><i class="fa fa-check"></i><b>3.10</b> Importando arquivos excel: .xls e .xlsx</a></li>
-<li class="chapter" data-level="3.11" data-path="primeiros-passos.html"><a href="primeiros-passos.html#manipulação-de-bases-de-dados-o-pacote-dplyr"><i class="fa fa-check"></i><b>3.11</b> Manipulação de bases de dados (o pacote dplyr)"</a></li>
+<li class="chapter" data-level="3.1" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importanto-conjunto-de-dados"><i class="fa fa-check"></i><b>3.1</b> Importanto conjunto de dados</a></li>
+<li class="chapter" data-level="3.2" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#objetos-e-vetores"><i class="fa fa-check"></i><b>3.2</b> Objetos e vetores</a></li>
+<li class="chapter" data-level="3.3" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#data-frames"><i class="fa fa-check"></i><b>3.3</b> Data frames</a></li>
+<li class="chapter" data-level="3.4" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-de-seleção"><i class="fa fa-check"></i><b>3.4</b> Operadores de seleção</a></li>
+<li class="chapter" data-level="3.5" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#utilizando-e-criando-funções-no-r"><i class="fa fa-check"></i><b>3.5</b> Utilizando e criando funções no R</a></li>
+<li class="chapter" data-level="3.6" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#operadores-lógicos-e-aritméticos"><i class="fa fa-check"></i><b>3.6</b> Operadores lógicos e aritméticos</a></li>
+<li class="chapter" data-level="3.7" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#loopings-de-programação-for-e-while"><i class="fa fa-check"></i><b>3.7</b> Loopings de programação: for e while</a></li>
+<li class="chapter" data-level="3.8" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#o-operador-pipe"><i class="fa fa-check"></i><b>3.8</b> O operador pipe (%&gt;%)</a></li>
+<li class="chapter" data-level="3.9" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-de-texto-.csv-e-.txt"><i class="fa fa-check"></i><b>3.9</b> Importando arquivos de texto: .csv e .txt</a></li>
+<li class="chapter" data-level="3.10" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#importando-arquivos-excel-.xls-e-.xlsx"><i class="fa fa-check"></i><b>3.10</b> Importando arquivos excel: .xls e .xlsx</a></li>
+<li class="chapter" data-level="3.11" data-path="manipulação-de-dados.html"><a href="manipulação-de-dados.html#manipulação-de-bases-de-dados-o-pacote-dplyr"><i class="fa fa-check"></i><b>3.11</b> Manipulação de bases de dados (o pacote dplyr)"</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
-<li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a>
+<li class="chapter" data-level="4" data-path="atividades.html"><a href="atividades.html"><i class="fa fa-check"></i><b>4</b> Atividades</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
-<li class="chapter" data-level="5.2" data-path="applications.html"><a href="applications.html#example-two"><i class="fa fa-check"></i><b>5.2</b> Example two</a></li>
+<li class="chapter" data-level="4.1" data-path="atividades.html"><a href="atividades.html#carregamento-de-bibliotecas-e-dados"><i class="fa fa-check"></i><b>4.1</b> Carregamento de bibliotecas e dados</a></li>
+<li class="chapter" data-level="4.2" data-path="atividades.html"><a href="atividades.html#exemplo-de-aplicação-do-lubridate"><i class="fa fa-check"></i><b>4.2</b> Exemplo de aplicação do Lubridate</a></li>
+<li class="chapter" data-level="4.3" data-path="atividades.html"><a href="atividades.html#uso-do-data-table-dt"><i class="fa fa-check"></i><b>4.3</b> Uso do <em>Data Table</em> (DT)</a></li>
+<li class="chapter" data-level="4.4" data-path="atividades.html"><a href="atividades.html#resolução-de-situações-problemas"><i class="fa fa-check"></i><b>4.4</b> Resolução de situações problemas</a>
+<ul>
+<li class="chapter" data-level="4.4.1" data-path="atividades.html"><a href="atividades.html#código-filtros-e-seleções"><i class="fa fa-check"></i><b>4.4.1</b> Código filtros e seleções</a></li>
+<li class="chapter" data-level="4.4.2" data-path="atividades.html"><a href="atividades.html#código---manipulação-de-datas"><i class="fa fa-check"></i><b>4.4.2</b> Código - manipulação de datas</a></li>
+<li class="chapter" data-level="4.4.3" data-path="atividades.html"><a href="atividades.html#código-gráficos"><i class="fa fa-check"></i><b>4.4.3</b> Código Gráficos</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="controle-de-versões-de-projetos.html"><a href="controle-de-versões-de-projetos.html"><i class="fa fa-check"></i><b>5</b> Controle de versões de projetos</a></li>
+<li class="chapter" data-level="6" data-path="dashboards.html"><a href="dashboards.html"><i class="fa fa-check"></i><b>6</b> Dashboards</a></li>
+<li class="chapter" data-level="7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html"><i class="fa fa-check"></i><b>7</b> Saúde - Probabilidade - Mapas</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#recursos-físicos-e-humanos-da-rede-assistencial-de-saúde"><i class="fa fa-check"></i><b>7.1</b> Recursos físicos e humanos da rede assistencial de saúde</a></li>
+<li class="chapter" data-level="7.2" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#objetivo-de-desenvolvimento-sustentável"><i class="fa fa-check"></i><b>7.2</b> Objetivo de Desenvolvimento Sustentável</a></li>
+<li class="chapter" data-level="7.3" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#ibge-pense"><i class="fa fa-check"></i><b>7.3</b> IBGE PENSE</a></li>
+<li class="chapter" data-level="7.4" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#sisvan"><i class="fa fa-check"></i><b>7.4</b> SISVAN</a></li>
+<li class="chapter" data-level="7.5" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-saúde-sei"><i class="fa fa-check"></i><b>7.5</b> Informações sobre saúde SEI</a></li>
+<li class="chapter" data-level="7.6" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#informações-sobre-câncer"><i class="fa fa-check"></i><b>7.6</b> Informações sobre câncer</a></li>
+<li class="chapter" data-level="7.7" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#divisão-dos-distritos-sanitários"><i class="fa fa-check"></i><b>7.7</b> Divisão dos distritos sanitários</a></li>
+<li class="chapter" data-level="7.8" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#doenças-de-condições-crônicas-e-infecções-sexualmente-transmissíveis"><i class="fa fa-check"></i><b>7.8</b> Doenças de Condições Crônicas e Infecções Sexualmente Transmissíveis</a></li>
+<li class="chapter" data-level="7.9" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#tabnet-salvador"><i class="fa fa-check"></i><b>7.9</b> Tabnet Salvador</a></li>
+<li class="chapter" data-level="7.10" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#histogramas"><i class="fa fa-check"></i><b>7.10</b> Histogramas</a></li>
+<li class="chapter" data-level="7.11" data-path="saúde-probabilidade-mapas.html"><a href="saúde-probabilidade-mapas.html#probabilidade-versus-possibilidade"><i class="fa fa-check"></i><b>7.11</b> Probabilidade versus possibilidade</a></li>
+</ul></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
-<li class="divider"></li>
-<li><a href="https://gamma.ufba.br" target="blank">Publicado por Robson Wilson Silva Pessoa</a></li>
-
 </ul>
 
       </nav>
@@ -201,165 +242,7 @@ ao longo do curso como:</p>
 <li>forcats</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(tidyverse)</span></code></pre></div>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">kable</span>(</span>
-<span id="cb3-2"><a href="intro.html#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(iris, <span class="dv">20</span>), <span class="at">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb3-3"><a href="intro.html#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">booktabs =</span> <span class="cn">TRUE</span></span>
-<span id="cb3-4"><a href="intro.html#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
-<table>
-<caption><span id="tab:nice-tab">Tabela 2.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(tidyverse)</span></code></pre></div>
 
 </div>
             </section>
@@ -368,7 +251,7 @@ ao longo do curso como:</p>
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="primeiros-passos.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="manipulação-de-dados.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -419,6 +302,20 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

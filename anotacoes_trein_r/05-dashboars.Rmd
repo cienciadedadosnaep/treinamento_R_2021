@@ -1,0 +1,8 @@
+# Dashboards
+
+Exemplo de *dashboard* desenvolvido ao longo do nosso 
+curso:
+
+- [Flexdashboard - Indicadores de Segurança Pública](https://github.com/rpessoa1983/indicadores_ssp)
+- [Shiny - Indicadores de Segurança Pública](https://robsonpessoa.shinyapps.io/ssp_indicadores/)
+

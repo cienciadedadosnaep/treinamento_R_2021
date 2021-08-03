@@ -117,7 +117,7 @@
 
 \title{Anotações do treinamento R}
 \author{Robson Wilson Silva Pessoa}
-\date{2021-07-19}
+\date{2021-07-22}
 
 \begin{document}
 \maketitle
@@ -131,38 +131,67 @@
 
 Para o treinamento em R para as atividades do projeto Ciência de Dados na Escola Pública é necessário conhecimento básico em R e linguagem de programação estruturada.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{install.packages}\NormalTok{(}\StringTok{"bookdown"}\NormalTok{)}
-\CommentTok{\# or the development version}
-\CommentTok{\# devtools::install\_github("rstudio/bookdown")}
-\end{Highlighting}
-\end{Shaded}
-
 \hypertarget{intro}{%
-\chapter{Introduction}\label{intro}}
+\chapter{Instalações e configurações}\label{intro}}
 
-You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
+Inicialmente é necessário fazer as instalações dos \emph{softwares}
+\href{https://cran.r-project.org/bin/windows/base/}{R} e
+\href{https://www.rstudio.com/products/rstudio/}{Rstudio}.
+Em seguida, deve ser instalados alguns pacotes comumente utilizados
+ao longo do curso como:
 
-Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+\begin{itemize}
+\tightlist
+\item
+  \href{https://www.tidyverse.org/}{tidyverse}, que inclui
+
+  \begin{itemize}
+  \tightlist
+  \item
+    readr
+  \item
+    dplyr
+  \item
+    tibble
+  \item
+    ggplot2
+  \item
+    tidyr
+  \item
+    stringr
+  \item
+    purr
+  \item
+    forcats
+  \end{itemize}
+\end{itemize}
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{par}\NormalTok{(}\AttributeTok{mar =} \FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, .}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}
-\FunctionTok{plot}\NormalTok{(pressure, }\AttributeTok{type =} \StringTok{\textquotesingle{}b\textquotesingle{}}\NormalTok{, }\AttributeTok{pch =} \DecValTok{19}\NormalTok{)}
+\FunctionTok{install.packages}\NormalTok{(tidyverse)}
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
+\hypertarget{manipulauxe7uxe3o-de-dados}{%
+\chapter{Manipulação de dados}\label{manipulauxe7uxe3o-de-dados}}
 
-{\centering \includegraphics[width=0.8\linewidth]{anotacoes_trein_r_files/figure-latex/nice-fig-1} 
+\hypertarget{importanto-conjunto-de-dados}{%
+\section{Importanto conjunto de dados}\label{importanto-conjunto-de-dados}}
 
-}
+Uma das opções mais simples de leitura de dados num arquivo é a
+função \emph{read.csv()} do pacote \textbf{\{utils\}}. Para o nosso conjunto de
+dados de Segurança Pública que está dentro da pasta do nosso \textbf{Rproject},
+temos o seguinte comando:
 
-\caption{Here is a nice figure!}\label{fig:nice-fig}
-\end{figure}
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{read.csv}\NormalTok{(}\AttributeTok{file=}\StringTok{\textquotesingle{}data/all\_data\_v00.csv\textquotesingle{}}\NormalTok{,}
+         \AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{,}\AttributeTok{sep =}\StringTok{\textquotesingle{},\textquotesingle{}}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
 
-Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
+\hypertarget{objetos-e-vetores}{%
+\section{Objetos e vetores}\label{objetos-e-vetores}}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -208,20 +237,8 @@ Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
 \end{tabular}
 \end{table}
 
-You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
-
-\hypertarget{primeiros-passos}{%
-\chapter{Primeiros passos}\label{primeiros-passos}}
-
-\hypertarget{objetos-e-vetores}{%
-\section{Objetos e vetores}\label{objetos-e-vetores}}
-
-\{
-
-\}
-
-\hypertarget{classes-nuxfameros-caracteres-luxf3gicos-e-data-frames}{%
-\section{Classes: números, caracteres, lógicos e data frames}\label{classes-nuxfameros-caracteres-luxf3gicos-e-data-frames}}
+`
+\#\# Classes: números, caracteres, lógicos e data frames
 
 \hypertarget{data-frames}{%
 \section{Data frames}\label{data-frames}}

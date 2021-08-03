@@ -1,0 +1,122 @@
+# Saúde - Probabilidade - Mapas
+
+Um pai cientista tem passado por 
+um dilema profundo. Diante da pandemia 
+que recentemente foi enfrentada por todos 
+os continentes, chegará 
+o momento de maior dificuldade em sua 
+decisão em reenviar seu filho para a escola. 
+O filho já o questionava sobre a possibilidade 
+de frequentar as aulas. Mas quais 
+informações temos acesso que podem nos ajudar nesta 
+avaliação?
+
+## Recursos físicos e humanos da rede assistencial de saúde
+
+[Mapas](https://dadosgeociencias.ibge.gov.br/portal/apps/sites/#/saude)
+
+
+<iframe width="804" height="452" src="https://www.youtube.com/embed/G5YsSBc98Po" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+## Objetivo de Desenvolvimento Sustentável
+
+[ODS3](http://www.agenda2030.org.br/ods/3/)
+[ODS3-IBGE](https://metadados.ibge.gov.br/consulta/ODS/objetivo/3)
+
+
+<iframe width="697" height="392" src="https://www.youtube.com/embed/LMOynUxsGHo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+## IBGE PENSE  
+
+<iframe width="876" height="493" src="https://www.youtube.com/embed/z4BBCHZUvD4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+[Tabelas PESE 2015](https://www.ibge.gov.br/estatisticas/sociais/saude/9134-pesquisa-nacional-de-saude-do-escolar.html?=&t=resultados)
+
+[Estudo PENSE IBGE](https://educa.ibge.gov.br/jovens/materias-especiais/19030-pense-2015-a-saude-dos-adolescentes.html)
+
+## SISVAN
+[SISVAN](http://sisaps.saude.gov.br/sisvan/relatoriopublico/index)
+
+
+## Informações sobre saúde SEI 
+
+[SEI Saúde](https://www.sei.ba.gov.br/index.php?option=com_content&view=article&id=3512&Itemid=995)
+
+```{r}
+
+library(readr)
+populacao_etaria_distsanit <- read_delim("data/populacao_etaria_distsanit_v02.csv", 
+        ";", escape_double = FALSE, trim_ws = TRUE)
+
+
+library(formattable)
+
+tabela_etaria <- NULL
+tabela_etaria <- dplyr::select(populacao_etaria_distsanit,-Total)
+
+formattable(tabela_etaria)
+
+formattable(tabela_etaria, align = c("l",rep("r", NCOL(tabela_etaria) - 1)), list(
+  DISTSANIT = formatter("span", style = ~ style(color = "grey",font.weight = "bold")), 
+  area(col = 2:7) ~ color_tile("#DeF7E9", "#71CA97")))
+
+library(sparkline)
+library(htmltools)
+df = data.frame(`Distritos` = as.vector(unname(tabela_etaria[1:12,1])),
+                `Barras` = c(as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[1,2:19])), type = "bar"))),
+                  as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[2,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[3,2:19])), type = "bar"))),  
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[4,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[5,2:19])), type = "bar"))),    
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[6,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[7,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[8,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[9,2:19])), type = "bar"))),  
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[10,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[11,2:19])), type = "bar"))),
+                            as.character(htmltools::as.tags(sparkline(as.vector(unname(tabela_etaria[12,2:19])), type = "bar")))
+                  ))
+out = as.htmlwidget(formattable(df))
+out$dependencies = c(out$dependencies, htmlwidgets:::widget_dependencies("sparkline", "sparkline"))
+out
+
+```
+
+## Informações sobre câncer
+
+[INCA](https://mortalidade.inca.gov.br/MortalidadeWeb/pages/Modelo03/consultar.xhtml)
+
+## Divisão dos distritos sanitários 
+
+[Informações mapas](http://geolivre.saude.ba.gov.br/geoportal/map.phtml?language=br)
+
+## Doenças de Condições Crônicas e Infecções Sexualmente Transmissíveis
+
+[IST](http://www.aids.gov.br/)
+
+## Tabnet Salvador 
+
+
+
+## Histogramas 
+
+
+## Probabilidade versus possibilidade 
+
+
+  - Introdução a conjuntos (Usar diagrama de Venn): quais os eventos que podemos ter nas eleições? Temos eventos: Válidos, Nulos, Branco, Faltantes.
+Interseção: 1° turno e 2° turno (é possível ter interseção entre as possibilidades)
+  - Frequência relativa: total de votos possíveis x a proporção em que ocorrem. 
+Trazer argumentos sobre Fake News de cancelamento de eleição.
+Frequência: A frequência de pessoas que votaram, não votaram, votaram nulo. 
+  - Trazer a ideia de equiprobabilidade pela visualização por heatmap;
+  - Variável aleatória: mostrar a variabilidade.
+  - Distribuição de probabilidade: classes de voto. Ex: investigar classes de votos para cada seção e montar histograma para cada um e interpretar a curva.
+Distribuição Uniforme. 
+normal
+
+Ao final do capítulo, citar as incertezas na informação. Por exemplo, pessoas que não atualizam o título para os locais de moradia, pessoas que morrem e ainda não estão atualizadas na base… 
+
+
