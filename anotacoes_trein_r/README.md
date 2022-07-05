@@ -3,23 +3,23 @@
  - SQL/MySQL - [12/07 - Cedma/Aline/Robson]
  - Pacote Tydiverse (dplyr,ggplot2,tidyr,lubridate) [13/07 - Bruna/William]
  - SparklyR (Robson/Julia/Laio(python)* 14/07)
- - Mapas [Robson/Elicelma 15/07]
- - Echarts4R []
- - Flexdashboard
+ - Mapas/leaflet/QGIS [Robson/Elicelma 15/07]
+ - Echarts4R/Apache echarts/Reconhecendo Salvador [Equipe site]
+ - Flexdashboard (Robson/William)
  - Shiny (appshiny)
- - Bookdown 
- - Python
- - Colab
- - Vscode
- - Pandas/Chuncks 
- - matplotlib
- - Scikit-learn
- - Statsmodel
- - Selenium
- - Dash
- - Keras/Cirq (Quantum Computing)
- - (Diversos sites de bancos de dados, Sites de materiais para STEAM, code.org, 
- - Tableau, PowerBI
+ - Bookdown (Bruna/Robson) 
+ - Python (Robson/Laio)
+ - Colab (Bruna e William)
+ - Vscode (Robson/Laio)
+ - Pandas/Chuncks (Laio/Robson) 
+ - matplotlib/Seaborn
+ - Scikit-learn (Robson)
+ - Statsmodel (Robson)
+ - Selenium (Laio)
+ - Dash 
+ - Keras/Cirq (Quantum Computing) (Yago)
+ - Diversos sites de bancos de dados, Sites de materiais para STEAM, code.org (todos)
+ - Tableau, PowerBI (Aline e Assuero)
  - Front end (React, nodejs)
  - Gitlab
  
