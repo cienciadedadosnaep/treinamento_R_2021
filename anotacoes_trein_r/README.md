@@ -1,1 +1,25 @@
-This is a minimal example of a book based on R Markdown and **bookdown** (https://github.com/rstudio/bookdown). Please see the page "Get Started" at https://bookdown.org/home/about/ for how to compile this example.
+ - Github  (Instlacao git, definição de versionamento, uso no cmd, comandos principais) [Laio/Robson - 11/07]
+ - Instalacao R e Rstudio [Laio/Robson - 11/07]
+ - SQL/MySQL - [12/07 - Cedma/Aline/Robson]
+ - Pacote Tydiverse (dplyr,ggplot2,tidyr,lubridate) [13/07 - Bruna/William]
+ - SparklyR (Robson/Julia/Laio(python)* 14/07)
+ - Mapas [Robson/Elicelma 15/07]
+ - Echarts4R []
+ - Flexdashboard
+ - Shiny (appshiny)
+ - Bookdown 
+ - Python
+ - Colab
+ - Vscode
+ - Pandas/Chuncks 
+ - matplotlib
+ - Scikit-learn
+ - Statsmodel
+ - Selenium
+ - Dash
+ - Keras/Cirq (Quantum Computing)
+ - (Diversos sites de bancos de dados, Sites de materiais para STEAM, code.org, 
+ - Tableau, PowerBI
+ - Front end (React, nodejs)
+ - Gitlab
+ 
